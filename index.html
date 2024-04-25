@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Karate Quiz</title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="container">
+            <div id="quiz">
+                <div id="header">
+                    <div id="lifes">
+                        <img src="suit_hearts.png" data-state="true">
+                        <img src="suit_hearts.png" data-state="true">
+                        <img src="suit_hearts.png" data-state="true">
+                    </div>
+                    <div id="headerscore">
+                        <span id="hscore-label">HIGHSCORE: <span id="qhighscore">0</span></span>
+                        <h3>SCORE: <span id="score">0</span></h3>
+                    </div>
+                </div>
+
+                <div id="quiz-container">
+                    <h4 id="word-jp"></h4>
+                    <h1 id="word-pt"></h1>
+                    <div id="choices">
+                        <span onclick="guessChoice(0)"></span>
+                        <span onclick="guessChoice(1)"></span>
+                        <span onclick="guessChoice(2)"></span>
+                        <span onclick="guessChoice(3)"></span>
+                    </div>
+                </div>
+            </div>
+            <div id="menu">
+                <h1 id="title">KARATE QUIZ</h1>
+                <h2 id="mscore"></h2>
+                <h3 id="mhighscore">HIGHSCORE: <span id="highscore">0</span></h3>
+                <button id="btn-start" onclick="startGame()">COMEÇAR</button>
+            </div>
+        </div>
+
+        <script src="script.js" defer></script>
+    </body>
+</html>

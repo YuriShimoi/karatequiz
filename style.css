@@ -1,0 +1,149 @@
+:root {
+    --right: #215F45;
+    --wrong: #A54949;
+    --select: #303D52;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: #090B0E;
+}
+
+h3 {
+    margin: 0;
+}
+
+button {
+    border: none;
+    margin-top: 10px;
+    padding: 15px 20px;
+    cursor: pointer;
+    background: #222B38;
+    border-radius: 4px;
+    text-align: center;
+    color: #E4E8F6;
+    font-weight: bold;
+
+    transition: all 180ms ease;
+}
+button:hover {
+    background: var(--select);
+}
+
+#container {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at 50%, #171C24, #090B0E 400px);
+    color: #E4E8F6;
+}
+
+#menu {
+    padding: 20px;
+    background: #171C24;
+    position: absolute;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#title {
+    margin: 0px 20px 20px 20px;
+    font-size: 40px;
+}
+
+#mscore {
+    margin: 10px 0px 10px 0px;
+    font-size: 30px;
+}
+
+#mhighscore {
+    color: #A7ADC2;
+    font-size: 16px;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#headerscore {
+    color: #E4E8F6;
+    text-align: right;
+    font-size: 20px;
+}
+
+#hscore-label {
+    color: #A7ADC2;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: bold;
+}
+
+#lifes {
+    display: flex;
+    gap: 6px;
+    flex-direction: row-reverse;
+}
+#lifes img {
+    --size: 55px;
+    pointer-events: none;
+    display: inline-block;
+    width: var(--size);
+    height: var(--size);
+    filter: brightness(0.4) sepia(1) hue-rotate(315deg) saturate(3) contrast(1.4);
+    transition: all 200ms ease;
+}
+#lifes img[data-state="false"] {
+    scale: 0.95;
+    filter: brightness(0.2) sepia(1) hue-rotate(173deg) contrast(0.6) opacity(0.4);
+}
+
+#quiz-container {
+    display: flex;
+    flex-direction: column;
+    background: #171C24;
+    padding: 10px 30px 20px 30px;
+    margin-top: 20px;
+    width: calc(100% - 60px);
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#word-jp {
+    margin-bottom: 0px;
+    color: #A7ADC2;
+}
+#word-pt {
+    font-size: 40px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+#choices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+#choices span {
+    padding: 15px 10px;
+    width: 100%;
+    cursor: pointer;
+    background: #222B38;
+    border-radius: 4px;
+    text-align: center;
+
+    transition: all 180ms ease;
+}
+#choices span:hover {
+    background: var(--select);
+}
+#choices span[data-state="wrong"] {
+    background: var(--wrong);
+}
