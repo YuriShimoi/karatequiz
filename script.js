@@ -136,10 +136,10 @@ function guessChoice(choice) {
         ECHOI.getElementsByTagName('span')[choice].dataset.state = "wrong";
         deduceLife();
         if(lifes == 0) {
+            ECHOI.getElementsByTagName('span')[answer].dataset.state = "right";
             setTimeout(() => {
-
                 gameOver();
-            }, 500);
+            }, 1500);
         }
     }
 }
@@ -149,7 +149,7 @@ function updateScore() {
 }
 
 function fillLifes() {
-    let elifes = ELIFE.getElementsByTagName('img');
+    let elifes = ELIFE.getElementsByTagName('span');
     elifes[0].dataset.state = "true";
     elifes[1].dataset.state = "true";
     elifes[2].dataset.state = "true";
@@ -158,7 +158,7 @@ function fillLifes() {
 }
 
 function deduceLife() {
-    let elifes = ELIFE.getElementsByTagName('img');
+    let elifes = ELIFE.getElementsByTagName('span');
     elifes[3-lifes].dataset.state = "false";
     lifes--;
 }

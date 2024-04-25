@@ -89,18 +89,33 @@ button:hover {
     gap: 6px;
     flex-direction: row-reverse;
 }
-#lifes img {
+#lifes span {
     --size: 55px;
     pointer-events: none;
     display: inline-block;
+    transition: all 200ms ease;
+}
+#lifes span img {
     width: var(--size);
     height: var(--size);
     filter: brightness(0.4) sepia(1) hue-rotate(315deg) saturate(3) contrast(1.4);
-    transition: all 200ms ease;
 }
-#lifes img[data-state="false"] {
+#lifes span[data-state="false"] img {
     scale: 0.95;
     filter: brightness(0.2) sepia(1) hue-rotate(173deg) contrast(0.6) opacity(0.4);
+}
+#lifes span[data-state="false"]::before {
+    display: block;
+    content: "";
+    width: calc(var(--size) - 3px);
+    height: 6px;
+    background: #2A2F34;
+    position: fixed;
+    margin-left: 4px;
+    margin-top: calc(calc(var(--size) / 2) - 3px);
+    border-radius: 2px;
+    transform: rotateZ(-20deg);
+    z-index: 1;
 }
 
 #quiz-container {
@@ -111,6 +126,7 @@ button:hover {
     margin-top: 20px;
     width: calc(100% - 60px);
     max-width: 400px;
+    min-width: 300px;
     border-radius: 10px;
     text-align: center;
 }
@@ -150,4 +166,27 @@ button:hover {
     background: var(--right);
     pointer-events: none;
     scale: 1.05;
+}
+
+@media only screen and (max-width: 600px) {
+    #quiz {
+        width: calc(100% - 40px);
+        padding: 0 20px;
+    }
+    #quiz-container {
+        max-width: none;
+        min-width: 0;
+    }
+}
+@media only screen and (max-width: 350px) {
+    #headerscore {
+        font-size: 16px;
+    }
+    
+    #hscore-label {
+        color: #A7ADC2;
+        font-size: 8px;
+        line-height: 8px;
+        font-weight: bold;
+    }
 }
