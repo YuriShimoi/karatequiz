@@ -143,4 +143,11 @@ button:hover {
 }
 #choices span[data-state="wrong"] {
     background: var(--wrong);
+    pointer-events: none;
+    scale: 0.95;
+}
+#choices span[data-state="right"] {
+    background: var(--right);
+    pointer-events: none;
+    scale: 1.05;
 }

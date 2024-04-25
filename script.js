@@ -122,17 +122,24 @@ function fillQuiz() {
 
 function guessChoice(choice) {
     if(choice == answer) {
+        ECHOI.getElementsByTagName('span')[choice].dataset.state = "right";
         score++;
         if(score > highscore) {
             EQHSCORE.innerHTML = score;
         }
-        fillQuiz();
+        updateScore();
+        setTimeout(() => {
+            fillQuiz();
+        }, 500);
     }
     else {
         ECHOI.getElementsByTagName('span')[choice].dataset.state = "wrong";
         deduceLife();
         if(lifes == 0) {
-            gameOver();
+            setTimeout(() => {
+
+                gameOver();
+            }, 500);
         }
     }
 }
