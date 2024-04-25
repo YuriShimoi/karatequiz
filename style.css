@@ -104,18 +104,24 @@ button:hover {
     scale: 0.95;
     filter: brightness(0.2) sepia(1) hue-rotate(173deg) contrast(0.6) opacity(0.4);
 }
-#lifes span[data-state="false"]::before {
+#lifes span::before {
     display: block;
     content: "";
     width: calc(var(--size) - 3px);
     height: 6px;
     background: #2A2F34;
     position: fixed;
-    margin-left: 4px;
+    margin-left: 5px;
     margin-top: calc(calc(var(--size) / 2) - 3px);
     border-radius: 2px;
-    transform: rotateZ(-20deg);
     z-index: 1;
+    box-shadow: 0 0 0 3px #101419;
+
+    transform: rotateZ(-40deg) rotateY(90deg);
+    transition: transform 500ms ease;
+}
+#lifes span[data-state="false"]::before {
+    transform: rotateZ(-40deg) rotateY(0deg);
 }
 
 #quiz-container {
