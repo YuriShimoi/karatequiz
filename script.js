@@ -42,9 +42,9 @@ const WORDS = {
     "Kime (決め)": "Foco ou concentração",
     "Hajime (始め)": "Começar",
     "Shomen (正⾯)": "Frente",
-    "Haito Uchi (廃⼑打ち)": "Golpe de parte dentro da mão aberta",
-    "Soto Uke (外受け)": "Bloqueio parte externa braço",
-    "Uchi Uke (内受け)": "Bloqueio parte interna braço",
+    "Haito Uchi (廃⼑打ち)": "Golpe com parte de dentro da mão aberta",
+    "Soto Uke (外受け)": "Bloqueio com parte externa braço",
+    "Uchi Uke (内受け)": "Bloqueio com parte interna braço",
     "Gyaku Tsuki (逆突き)": "Soco invertido",
     "Kiai (気合)": "Grito de energia",
     "Tori (取り)": "Aquele que executa a técnica",
@@ -159,7 +159,7 @@ function deduceLife() {
 function gameOver() {
     hideQuiz();
     EMSCORE.hidden = false;
-    EMSCORE.innerHTML = `SCORE: ${score}`;
+    EMSCORE.innerHTML = `PONTOS: ${score}`;
     EBSTART.innerHTML = "TENTAR NOVAMENTE";
     ETITLE.innerHTML = "GAME OVER";
     

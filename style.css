@@ -141,9 +141,6 @@ button:hover {
 
     transition: all 180ms ease;
 }
-#choices span:hover {
-    background: var(--select);
-}
 #choices span[data-state="wrong"] {
     background: var(--wrong);
 }
