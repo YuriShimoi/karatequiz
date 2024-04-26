@@ -138,13 +138,15 @@ button:hover {
 }
 
 #word-jp {
-    margin-bottom: 0px;
+    margin-bottom: -3px;
+    margin-top: 5px;
     color: #A7ADC2;
 }
 #word-pt {
     font-size: 40px;
     margin-top: 0px;
     margin-bottom: 10px;
+    line-height: 45px;
 }
 
 #choices {

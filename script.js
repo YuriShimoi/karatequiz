@@ -92,24 +92,43 @@ function hideMenu() {
 }
 
 function fillQuiz() {
-    let rndWord = Object.keys(WORDS)[Math.floor(Math.random() * 50)];
-    let rndAnswer = WORDS[rndWord];
+    let wordList   = [];
+    let answerList = [];
+    if(Math.round(Math.random() * 1.5)) {
+        wordList   = Object.keys(WORDS);
+        answerList = Object.values(WORDS);
+    }
+    else {
+        wordList   = Object.values(WORDS);
+        answerList = Object.keys(WORDS);
+    }
+
+    let rndIndex  = Math.round(Math.random() * 49);
+    let rndWord   = wordList[rndIndex];
+    let rndAnswer = answerList[rndIndex];
 
     let choices = [rndAnswer];
     while(choices.length < 4) {
-        let rndChoice = Object.values(WORDS)[Math.floor(Math.random() * 50)];
+        let rndChoice = answerList[Math.round(Math.random() * 49)];
         if(!choices.includes(rndChoice)) {
             choices.push(rndChoice);
         }
     }
     
-    let rndPos = Math.floor(Math.random() * 4);
+    let rndPos = Math.round(Math.random() * 3);
     choices[0] = choices[rndPos];
     choices[rndPos] = rndAnswer;
     
     answer = rndPos;
-    EWORD.PT.innerHTML = rndWord.substring(0, rndWord.indexOf('(')-1);
-    EWORD.JP.innerHTML = rndWord.substring(rndWord.indexOf('(')+1, rndWord.length-1);
+    console.log(rndWord);
+    if(rndWord.includes('(')) {
+        EWORD.PT.innerHTML = rndWord.substring(0, rndWord.indexOf('(')-1);
+        EWORD.JP.innerHTML = rndWord.substring(rndWord.indexOf('(')+1, rndWord.length-1);
+    }
+    else {
+        EWORD.PT.innerHTML = rndWord;
+        EWORD.JP.innerHTML = "";
+    }
     let eChoices = ECHOI.getElementsByTagName("span");
 
     for(let c=0; c < eChoices.length; c++) {
