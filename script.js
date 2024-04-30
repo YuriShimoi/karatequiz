@@ -29,7 +29,7 @@ const WORDS = {
     "Oi Tsuki (追い突き)": "Soco avançado",
     "Guedan Barai (下段払い)": "Bloqueio para baixo",
     "Ashi Barai (⾜払い)": "Varredura de perna",
-    "Seiken (正拳)": "Soco Mão fechada",
+    "Seiken (正拳)": "Soco de mão fechada",
     "Empi (肘)": "Cotovelo",
     "Mawashi Geri (回し蹴り)": "Chute circular",
     "Yoi (⽤意)": "Posição de prontidão",
@@ -42,9 +42,9 @@ const WORDS = {
     "Kime (決め)": "Foco ou concentração",
     "Hajime (始め)": "Começar",
     "Shomen (正⾯)": "Frente",
-    "Haito Uchi (廃⼑打ち)": "Golpe com parte de dentro da mão aberta",
-    "Soto Uke (外受け)": "Bloqueio com parte externa braço",
-    "Uchi Uke (内受け)": "Bloqueio com parte interna braço",
+    "Haito Uchi (廃⼑打ち)": "Golpe com a parte de dentro da mão aberta",
+    "Soto Uke (外受け)": "Bloqueio com parte externa do braço",
+    "Uchi Uke (内受け)": "Bloqueio com parte interna do braço",
     "Gyaku Tsuki (逆突き)": "Soco invertido",
     "Kiai (気合)": "Grito de energia",
     "Tori (取り)": "Aquele que executa a técnica",
@@ -67,6 +67,8 @@ const WORDS = {
     "Encho Sen (遠跳戦)": "Estratégia de manter a distância",
     "Tenshin (転⾝)": "Movimento evasivo"
 };
+
+let lastIndex = -1;
 
 let answer = 0;
 let lifes = 3;
@@ -103,7 +105,10 @@ function fillQuiz() {
         answerList = Object.keys(WORDS);
     }
 
-    let rndIndex  = Math.round(Math.random() * 49);
+    let rndIndex = Math.round(Math.random() * 49);
+    while(rndIndex === lastIndex) rndIndex = Math.round(Math.random() * 49);
+    lastIndex = rndIndex;
+
     let rndWord   = wordList[rndIndex];
     let rndAnswer = answerList[rndIndex];
 
@@ -120,7 +125,6 @@ function fillQuiz() {
     choices[rndPos] = rndAnswer;
     
     answer = rndPos;
-    console.log(rndWord);
     if(rndWord.includes('(')) {
         EWORD.PT.innerHTML = rndWord.substring(0, rndWord.indexOf('(')-1);
         EWORD.JP.innerHTML = rndWord.substring(rndWord.indexOf('(')+1, rndWord.length-1);
@@ -158,7 +162,7 @@ function guessChoice(choice) {
             ECHOI.getElementsByTagName('span')[answer].dataset.state = "right";
             setTimeout(() => {
                 gameOver();
-            }, 1500);
+            }, 2000);
         }
     }
 }
